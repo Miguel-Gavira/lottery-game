@@ -10,7 +10,7 @@
   </div>
   <div class="amount">
     <div class="input-box">
-      <span>x {{ selectedBalls.length }}</span>
+      <span>{{ selectedBalls.length }}x</span>
       <input [formControl]="betControl" type="number" />
       <p *ngIf="warningMinimumBet">The minimum bet is €5</p>
     </div>

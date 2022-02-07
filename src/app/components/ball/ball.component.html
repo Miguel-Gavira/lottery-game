@@ -1,1 +1,6 @@
-<button [ngClass]="numberToString()" (click)="toggle()">{{ number > 0 ? number : '' }}</button>
+<button
+  [ngStyle]="{ 'background-color': colors[calculateColor()] || '#F9FFFC' }"
+  (click)="toggle()"
+>
+  {{ number > 0 ? number : "" }}
+</button>

@@ -1,25 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BetSlipComponent } from './bet-slip.component';
 
-describe('BetSlipComponent', () => {
-  let component: BetSlipComponent;
-  let fixture: ComponentFixture<BetSlipComponent>;
+xdescribe('BetSlipComponent', () => {
+  const component = new BetSlipComponent();
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ BetSlipComponent ]
-    })
-    .compileComponents();
-  });
+  xdescribe('Test calculateBet method', function () {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BetSlipComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

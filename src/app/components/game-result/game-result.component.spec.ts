@@ -1,25 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BallsService } from 'src/app/services/balls.service';
 import { GameResultComponent } from './game-result.component';
 
 describe('GameResultComponent', () => {
-  let component: GameResultComponent;
-  let fixture: ComponentFixture<GameResultComponent>;
+  const ballsService = new BallsService();
+  const component = new GameResultComponent(ballsService);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ GameResultComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GameResultComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('Test generateRandomInt method', function() {
+    const randomNumber = component.generateRandomInt();
+    expect(randomNumber).toBeLessThanOrEqual(10);
+    expect(randomNumber).toBeGreaterThanOrEqual(1);
+  })
 });

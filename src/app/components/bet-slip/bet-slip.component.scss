@@ -10,8 +10,8 @@
   .balls {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     padding: 15px;
+    width: 90%;
   }
   .amount {
     display: flex;
@@ -57,6 +57,7 @@
       height: 40px;
       width: 50px;
       margin-left: 20px;
+      cursor: pointer;
     }
   }
   .total {

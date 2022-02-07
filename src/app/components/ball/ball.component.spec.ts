@@ -1,25 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BallsService } from 'src/app/services/balls.service';
 import { BallComponent } from './ball.component';
 
 describe('BallComponent', () => {
-  let component: BallComponent;
-  let fixture: ComponentFixture<BallComponent>;
+  const ballsService = new BallsService();
+  const component = new BallComponent(ballsService);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ BallComponent ]
+  describe('test calculateColor method', function () {
+    it('calculate color for number 70', function() {
+      component.number = 70;
+      const color = component.calculateColor();
+      expect(color).toBeLessThanOrEqual(6);
+      expect(color).toBeGreaterThanOrEqual(1);
     })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BallComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('calculate color for number 6', function() {
+      component.number = 6;
+      const color = component.calculateColor();
+      expect(color).toBeLessThanOrEqual(6);
+      expect(color).toBeGreaterThanOrEqual(1);
+    })  });
 });
