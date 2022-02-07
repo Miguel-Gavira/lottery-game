@@ -1,0 +1,11 @@
+<div class="selector-box">
+  <h3>Numbers</h3>
+  <div class="balls">
+    <ng-container *ngFor="let ball of balls">
+      <app-ball [number]="ball"></app-ball>
+    </ng-container>
+  </div>
+  <div class="actions">
+    <button (click)="clearSelection()" class="clear">Clear selection</button>
+  </div>
+</div>

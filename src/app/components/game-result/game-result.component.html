@@ -1,0 +1,12 @@
+<section>
+  <h3>Result</h3>
+  <app-ball [number]="winningBall"></app-ball>
+  <h3>
+    <span *ngIf="!selectedBalls.includes(winningBall)"
+      >YOU LOST {{ bet * selectedBalls.length }}€</span
+    >
+    <span *ngIf="selectedBalls.includes(winningBall)"
+      >YOU WON {{ bet * selectedBalls.length * 1.5 }}€</span
+    >
+  </h3>
+</section>

@@ -1,0 +1,18 @@
+<section *ngIf="selectedBalls | async as selectedBalls">
+  <div class="principal">
+    <app-ball-selector *ngIf="!result"></app-ball-selector>
+    <app-game-result
+      *ngIf="result"
+      [bet]="bet"
+      [selectedBalls]="selectedBalls"
+    ></app-game-result>
+  </div>
+  <div class="bet-box">
+    <app-bet-slip
+      [selectedBalls]="selectedBalls"
+      [balls]="balls"
+      (betAmount)="setBet($event)"
+      (startGame)="startGame()"
+    ></app-bet-slip>
+  </div>
+</section>

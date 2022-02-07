@@ -1,0 +1,29 @@
+<section>
+  <div class="balls">
+    <ng-container *ngFor="let ball of balls">
+      <app-ball
+        [ngStyle]="{ order: !selectedBalls.includes(ball) ? 2 : 1 }"
+        [number]="selectedBalls.includes(ball) ? ball : 0"
+        [disabled]="true"
+      ></app-ball>
+    </ng-container>
+  </div>
+  <div class="amount">
+    <div class="input-box">
+      <span>x {{ selectedBalls.length }}</span>
+      <input [formControl]="betControl" type="number" />
+      <p *ngIf="warningMinimumBet">The minimum bet is €5</p>
+    </div>
+    <button type="button" (click)="updateBet()">Ok</button>
+  </div>
+  <div class="total">
+    <span>Total: {{ selectedBalls.length * bet }}€</span>
+    <button
+      type="button"
+      [disabled]="selectedBalls.length * bet < 5"
+      (click)="start()"
+    >
+      Place bet
+    </button>
+  </div>
+</section>

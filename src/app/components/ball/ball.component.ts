@@ -1,24 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { NumbersService } from 'src/app/services/numbers.service';
+import { BallsService } from 'src/app/services/balls.service';
 
 @Component({
   selector: 'app-ball',
   templateUrl: './ball.component.html',
-  styleUrls: ['./ball.component.scss']
+  styleUrls: ['./ball.component.scss'],
 })
 export class BallComponent {
   @Input() number = 0;
+  @Input() disabled = false;
 
-  constructor(private numbersService: NumbersService) {}
+  constructor(private ballsService: BallsService) {}
 
   toggle() {
-    let values = this.numbersService.getNumbers();
-    if (!values.includes(this.number)) {
-      this.numbersService.addNumber(this.number);
-    } else {
-      this.numbersService.substractNumber(this.number);
+    if (this.number > 0 && !this.disabled) {
+      this.ballsService.checkNumber(this.number);
     }
-    console.log(this.numbersService.getNumbers());
   }
 
+  numberToString(): string {
+    return String.fromCharCode(this.number + 96);
+  }
 }
