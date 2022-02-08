@@ -11,7 +11,7 @@ export class BallsService {
   private ballsValues: number[] = [];
   balls = new BehaviorSubject<number[]>(this.ballsValues);
 
-  constructor()  {
+  constructor() {
     this.initBalls();
   }
 
@@ -28,11 +28,11 @@ export class BallsService {
   }
 
   checkNumber(number: number) {
-    if (!this.ballsValues.includes(number)) {
-      this.addNumber(number);
-    } else {
+    if (this.ballsValues.includes(number)) {
       this.subtractNumber(number);
+      return;
     }
+    this.addNumber(number);
   }
 
   resetBalls() {
